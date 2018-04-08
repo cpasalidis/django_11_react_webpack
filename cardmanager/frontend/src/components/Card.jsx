@@ -13,6 +13,10 @@ class Card extends Component {
     updateCardId:null
   }
 
+  componentDidMount() {
+    this.props.fetchCards();
+  }
+
   resetForm = () => {
     this.setState({text: "", updateCardId: null});
   }
@@ -25,12 +29,13 @@ class Card extends Component {
   submitCard = (e) => {
     e.preventDefault();
     if (this.state.updateCardId === null) {
-      this.props.addCard(this.state.text);
+      this.props.addCard(this.state.text).then(this.resetForm);
     } else {
-      this.props.updateCard(this.state.updateCardId, this.state.text);
+      this.props.updateCard(this.state.updateCardId, this.state.text).then(this.resetForm);
     }
     this.resetForm();
   }
+
 
     render() {
       return (
@@ -75,11 +80,14 @@ class Card extends Component {
   
   const mapDispatchToProps = dispatch => {
     return {
+      fetchCards: () => {
+          dispatch(cards.fetchCards());
+        },
       addCard: (text) => {
-        dispatch(cards.addCard(text));
+        return dispatch(cards.addCard(text));
       },
       updateCard: (id, text) => {
-        dispatch(cards.addCard(id, text));
+        return dispatch(cards.addCard(id, text));
       },
       deleteCard: (id) => {
         dispatch(cards.deleteCard(id));

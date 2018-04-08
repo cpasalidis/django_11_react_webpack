@@ -4,14 +4,15 @@ import Card from "./components/Card";
 import NotFound from "./components/NotFound";
 //redux
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore,applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import cardApp from "./reducers";
 //look 
 import logo from './logo.svg';
 import './App.css';
 
 
-let store = createStore(cardApp);
+let store = createStore(cardApp,applyMiddleware(thunk));
 
 class App extends Component {
   render() {

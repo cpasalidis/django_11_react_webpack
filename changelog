@@ -1,4 +1,4 @@
-i
+Completed the tutorial using redux and a custom css
 Created react jsx components for Card and for notfound. Working
 Made django serve same thing on port 8000 as react on port 3000
 creating a django-react app using http://v1k45.com/blog/modern-django-part-1-setting-up-django-and-react/
