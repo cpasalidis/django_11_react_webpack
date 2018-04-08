@@ -1,0 +1,5 @@
+Made django serve same thing on port 8000 as react on port 3000
+creating a django-react app using http://v1k45.com/blog/modern-django-part-1-setting-up-django-and-react/
+inside the conda environment i installed django 11 for python 2
+created a new conda environment using http://felipegalvao.com.br/blog/2017/01/03/creating-development-environments-and-installing-django-with-anaconda/
+
